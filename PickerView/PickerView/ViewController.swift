@@ -12,8 +12,10 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     
     let MAX_ARRAY_NUM = 10
     let PICKER_VIEW_COLUMN = 1
+    let PICKET_VIEW_HEIGHT:CGFloat = 80
     var imageArray = [UIImage]()
     var imageFileName = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
+    
 
     @IBOutlet weak var pickerImage: UIPickerView!
     @IBOutlet weak var lblImageFileName: UILabel!
@@ -38,6 +40,10 @@ class ViewController: UIViewController, UIPickerViewDelegate {
    
     func numberOfComponents(pickerView: UIPickerView!) -> Int {
         return PICKER_VIEW_COLUMN
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat{
+        return PICKET_VIEW_HEIGHT
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
