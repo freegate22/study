@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate {
     
     let MAX_ARRAY_NUM = 10
-    let PICKER_VIEW_COLUMN = 1
+    let PICKER_VIEW_COLUMN = 2
     let PICKET_VIEW_HEIGHT:CGFloat = 80
     var imageArray = [UIImage]()
     var imageFileName = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
@@ -20,6 +20,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var pickerImage: UIPickerView!
     @IBOutlet weak var lblImageFileName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var pickerImage2: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +62,12 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        lblImageFileName.text = imageFileName[row]
-        imageView.image = imageArray[row]
+        print(component)
+        if( pickerImage == pickerView ){
+            lblImageFileName.text = imageFileName[row]
+        } else {
+            imageView.image = imageArray[row]
+        }
     }
 }
 

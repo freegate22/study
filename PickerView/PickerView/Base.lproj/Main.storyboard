@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGB-Jm-duc">
-                                <frame key="frameInset" minY="48" height="216"/>
+                                <frame key="frameInset" minY="28" height="216" maxX="170"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lSF-Jd-0Ht"/>
@@ -43,6 +43,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V3x-G0-VCw">
+                                <frame key="frameInset" minX="170" minY="28" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="92C-sx-ZKL"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -50,6 +57,7 @@
                         <outlet property="imageView" destination="nJW-1E-uUd" id="7fn-kc-Akx"/>
                         <outlet property="lblImageFileName" destination="lcJ-Vp-m5u" id="9e4-VT-ucj"/>
                         <outlet property="pickerImage" destination="RGB-Jm-duc" id="a5F-6z-4vo"/>
+                        <outlet property="pickerImage2" destination="V3x-G0-VCw" id="DYT-iN-iQ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
