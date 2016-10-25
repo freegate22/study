@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OS3-8T-b0h">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="Rl6-k8-XbC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="-259"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ksk-BQ-ifZ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OS3-8T-b0h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="nS5-cv-HEy">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="KLB-mu-9Tf"/>
+                        <segue destination="cPv-72-7eY" kind="relationship" relationship="viewControllers" id="yHF-9u-DSa"/>
+                        <segue destination="s9D-Bn-GlQ" kind="relationship" relationship="viewControllers" id="ReW-CO-1Zl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QkT-n7-MmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69" y="129"/>
+        </scene>
+        <!--Date View Controller-->
+        <scene sceneID="Ht0-JW-Vfe">
+            <objects>
+                <viewController id="cPv-72-7eY" customClass="DateViewController" customModule="Tab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eFT-sc-Lhl"/>
+                        <viewControllerLayoutGuide type="bottom" id="nHh-gB-gOi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0nS-bt-kge">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재시간:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-QJ-fiZ">
+                                <frame key="frameInset" minX="16" minY="60" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="선택시간: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sV-Cr-dYn">
+                                <frame key="frameInset" minX="16" minY="361" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="csq-SM-D73">
+                                <frame key="frameInset" minY="137" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="498655381.51417899">
+                                    <!--2016-10-20 11:23:01 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="changeDatePicker:" destination="cPv-72-7eY" eventType="valueChanged" id="De6-z1-unE"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="wui-b4-K5f"/>
+                    <connections>
+                        <outlet property="lblCurrentTime" destination="FQh-QJ-fiZ" id="Ay4-C2-ceZ"/>
+                        <outlet property="lblPickerTime" destination="6sV-Cr-dYn" id="zUW-Kt-OdK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2lf-Pq-zet" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="564"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="HvN-qs-4xh">
+            <objects>
+                <viewController id="s9D-Bn-GlQ" customClass="ImageViewController" customModule="Tab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ibe-0m-G0l"/>
+                        <viewControllerLayoutGuide type="bottom" id="R4R-qN-ns7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xWt-fW-Ia6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GIq-4w-QQN">
+                                <frame key="frameInset" minX="16" minY="20" width="288" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OV9-vB-Hh3">
+                                <frame key="frameInset" minX="99" minY="318" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="확대"/>
+                                <connections>
+                                    <action selector="btnResizeImage:" destination="s9D-Bn-GlQ" eventType="touchUpInside" id="K4V-1f-pIc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="2eE-uz-uQj"/>
+                    <connections>
+                        <outlet property="btnResize" destination="OV9-vB-Hh3" id="DhA-35-mAf"/>
+                        <outlet property="imgView" destination="GIq-4w-QQN" id="o8Z-pF-imv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5gf-if-aya" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681.875" y="128.87323943661971"/>
+        </scene>
+    </scenes>
+</document>
