@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate {
     
     let MAX_ARRAY_NUM = 10
-    let PICKER_VIEW_COLUMN = 2
+    let PICKER_VIEW_COLUMN = 2  // Picker View 열 개수
     let PICKET_VIEW_HEIGHT:CGFloat = 80
     var imageArray = [UIImage]()
     var imageFileName = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"]
@@ -43,6 +43,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         return PICKER_VIEW_COLUMN
     }
     
+    // 룰렛의 높이를 지정
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat{
         return PICKET_VIEW_HEIGHT
     }
@@ -51,16 +52,19 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         return imageFileName.count
     }
     
+    // 피커뷰의 각 항목을 글자로 보여줄 때
 //    func pickerView(_ pickerView: UIPickerView, titleForRow row:Int, forComponent component: Int) ->  String? {
 //        return imageFileName[row]
 //    }
     
+    // 피커뷰의 각 항목을 이미지로 보여줄 때 - row를 입력받으면 그림을 그려줌
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let imageView = UIImageView(image:imageArray[row])
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 150)
         return imageView
     }
     
+    // 룰렛이 선택되었을 때
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         print(component)
         if( pickerImage == pickerView ){
