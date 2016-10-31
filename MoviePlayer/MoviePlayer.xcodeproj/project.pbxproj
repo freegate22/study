@@ -12,6 +12,10 @@
 		0D3AD6121DC71906000B68EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6101DC71906000B68EF /* Main.storyboard */; };
 		0D3AD6141DC71906000B68EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6131DC71906000B68EF /* Assets.xcassets */; };
 		0D3AD6171DC71906000B68EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6151DC71906000B68EF /* LaunchScreen.storyboard */; };
+		0D3AD6231DC71991000B68EF /* FastTyping.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD61F1DC71991000B68EF /* FastTyping.mp4 */; };
+		0D3AD6241DC71991000B68EF /* Fireworks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6201DC71991000B68EF /* Fireworks.mp4 */; };
+		0D3AD6251DC71991000B68EF /* FastTyping.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6211DC71991000B68EF /* FastTyping.jpg */; };
+		0D3AD6261DC71991000B68EF /* Fireworks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD6221DC71991000B68EF /* Fireworks.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		0D3AD6131DC71906000B68EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D3AD6161DC71906000B68EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D3AD6181DC71906000B68EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3AD61F1DC71991000B68EF /* FastTyping.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = FastTyping.mp4; sourceTree = "<group>"; };
+		0D3AD6201DC71991000B68EF /* Fireworks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fireworks.mp4; sourceTree = "<group>"; };
+		0D3AD6211DC71991000B68EF /* FastTyping.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FastTyping.jpg; sourceTree = "<group>"; };
+		0D3AD6221DC71991000B68EF /* Fireworks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fireworks.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		0D3AD60B1DC71906000B68EF /* MoviePlayer */ = {
 			isa = PBXGroup;
 			children = (
+				0D3AD61E1DC71985000B68EF /* image_movie */,
 				0D3AD60C1DC71906000B68EF /* AppDelegate.swift */,
 				0D3AD60E1DC71906000B68EF /* ViewController.swift */,
 				0D3AD6101DC71906000B68EF /* Main.storyboard */,
@@ -62,6 +71,17 @@
 				0D3AD6181DC71906000B68EF /* Info.plist */,
 			);
 			path = MoviePlayer;
+			sourceTree = "<group>";
+		};
+		0D3AD61E1DC71985000B68EF /* image_movie */ = {
+			isa = PBXGroup;
+			children = (
+				0D3AD61F1DC71991000B68EF /* FastTyping.mp4 */,
+				0D3AD6201DC71991000B68EF /* Fireworks.mp4 */,
+				0D3AD6211DC71991000B68EF /* FastTyping.jpg */,
+				0D3AD6221DC71991000B68EF /* Fireworks.jpg */,
+			);
+			name = image_movie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +146,10 @@
 			files = (
 				0D3AD6171DC71906000B68EF /* LaunchScreen.storyboard in Resources */,
 				0D3AD6141DC71906000B68EF /* Assets.xcassets in Resources */,
+				0D3AD6251DC71991000B68EF /* FastTyping.jpg in Resources */,
+				0D3AD6231DC71991000B68EF /* FastTyping.mp4 in Resources */,
+				0D3AD6261DC71991000B68EF /* Fireworks.jpg in Resources */,
+				0D3AD6241DC71991000B68EF /* Fireworks.mp4 in Resources */,
 				0D3AD6121DC71906000B68EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +326,7 @@
 				0D3AD61D1DC71906000B68EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

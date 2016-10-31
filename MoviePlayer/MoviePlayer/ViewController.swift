@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -20,6 +22,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func btnPlayInternalMovie(_ sender: UIButton) {
+        let filePath:String? = Bundle.main.path(forResource: "FastTyping",ofType:"mp4")
+        let url = URL(fileURLWithPath: filePath!)
+        playVideo(url: url)
+    }
 
+    @IBAction func btnPlayExternalMovie(_ sender: UIButton) {
+        let url = URL(string: "https://dl.dropboxusercontent.com/s/e38auz050w2mvud/Fireworks.mp4")!
+        playVideo(url: url)
+    }
+    
+    private func playVideo(url: URL){
+        let player = AVPlayer(url: url)
+        let playerController = AVPlayerViewController()
+        
+        playerController.player = player
+        self.present(playerController, animated:true){
+            player.play()
+        }
+    }
 }
 
