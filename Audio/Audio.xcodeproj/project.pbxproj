@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3AD5F71DC624B0000B68EF /* Sicilian_Breeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD5F61DC624B0000B68EF /* Sicilian_Breeze.mp3 */; };
+		0D3AD5FC1DC70CC0000B68EF /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD5F81DC70CC0000B68EF /* pause.png */; };
+		0D3AD5FD1DC70CC0000B68EF /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD5F91DC70CC0000B68EF /* play.png */; };
+		0D3AD5FE1DC70CC0000B68EF /* record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD5FA1DC70CC0000B68EF /* record.png */; };
+		0D3AD5FF1DC70CC0000B68EF /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3AD5FB1DC70CC0000B68EF /* stop.png */; };
 		0D8FA2101DC5CBA30033817F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8FA20F1DC5CBA30033817F /* AppDelegate.swift */; };
 		0D8FA2121DC5CBA30033817F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8FA2111DC5CBA30033817F /* ViewController.swift */; };
 		0D8FA2151DC5CBA30033817F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D8FA2131DC5CBA30033817F /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D3AD5F61DC624B0000B68EF /* Sicilian_Breeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sicilian_Breeze.mp3; sourceTree = "<group>"; };
+		0D3AD5F81DC70CC0000B68EF /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		0D3AD5F91DC70CC0000B68EF /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		0D3AD5FA1DC70CC0000B68EF /* record.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = record.png; sourceTree = "<group>"; };
+		0D3AD5FB1DC70CC0000B68EF /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		0D8FA20C1DC5CBA30033817F /* Audio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D8FA20F1DC5CBA30033817F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D8FA2111DC5CBA30033817F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +64,11 @@
 		0D8FA20E1DC5CBA30033817F /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				0D3AD5F81DC70CC0000B68EF /* pause.png */,
+				0D3AD5F91DC70CC0000B68EF /* play.png */,
+				0D3AD5FA1DC70CC0000B68EF /* record.png */,
+				0D3AD5FB1DC70CC0000B68EF /* stop.png */,
+				0D3AD5F61DC624B0000B68EF /* Sicilian_Breeze.mp3 */,
 				0D8FA20F1DC5CBA30033817F /* AppDelegate.swift */,
 				0D8FA2111DC5CBA30033817F /* ViewController.swift */,
 				0D8FA2131DC5CBA30033817F /* Main.storyboard */,
@@ -125,8 +140,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D8FA21A1DC5CBA30033817F /* LaunchScreen.storyboard in Resources */,
+				0D3AD5FF1DC70CC0000B68EF /* stop.png in Resources */,
+				0D3AD5F71DC624B0000B68EF /* Sicilian_Breeze.mp3 in Resources */,
+				0D3AD5FE1DC70CC0000B68EF /* record.png in Resources */,
+				0D3AD5FC1DC70CC0000B68EF /* pause.png in Resources */,
 				0D8FA2171DC5CBA30033817F /* Assets.xcassets in Resources */,
 				0D8FA2151DC5CBA30033817F /* Main.storyboard in Resources */,
+				0D3AD5FD1DC70CC0000B68EF /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +322,7 @@
 				0D8FA2201DC5CBA30033817F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
