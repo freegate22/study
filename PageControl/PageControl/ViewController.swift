@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    var imgNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,15 @@ class ViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor.green
         pageControl.currentPageIndicatorTintColor = UIColor.red
         imgView.image = UIImage(named: images[0])
+        
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(gesture:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(gesture:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.view.addGestureRecognizer(swipeRight)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +42,34 @@ class ViewController: UIViewController {
 
     @IBAction func pageChanged(_ sender: UIPageControl) {
         imgView.image = UIImage(named: images[pageControl.currentPage])
+    }
+    
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer){
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.left:
+                
+                imgNum = imgNum + 1
+                if( imgNum > 5 ){
+                    imgNum = 5
+                }
+                
+                imgView.image = UIImage(named: images[imgNum])
+            case UISwipeGestureRecognizerDirection.right:
+                
+                imgNum = imgNum - 1
+                if( imgNum < 0 ){
+                    imgNum = 0
+                }
+                
+                imgView.image = UIImage(named: images[imgNum])
+            default:
+                break
+            }
+            pageControl.currentPage = imgNum
+        }
     }
 
 }
