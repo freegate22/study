@@ -139,5 +139,54 @@ class ViewController: UIViewController {
         imgView.image = UIGraphicsGetImageFromCurrentImageContext() // 이미지뷰에 넣기
         UIGraphicsEndImageContext() // 그림 그리기를 끝냄
     }
+    
+    @IBAction func btnMission(_ sender: UIButton) {
+        UIGraphicsBeginImageContext(imgView.frame.size) // 콘텍스트를 이미지뷰의 크기와 일치시킨다.
+        let context = UIGraphicsGetCurrentContext()     // 생성한 콘텍스트의 정보를 가져옵니다.
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.blue.cgColor)    // 색상
+        let circle1 = CGRect(x: 90, y: 150, width: 100, height: 100)
+        context!.addEllipse(in: circle1) // 원 그리기
+        context!.strokePath()
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.blue.cgColor)    // 색상
+        let circle2 = CGRect(x: 90+50, y: 150, width: 100, height: 100)
+        context!.addEllipse(in: circle2) // 원 그리기
+        context!.strokePath()
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.blue.cgColor)    // 색상
+        let circle3 = CGRect(x: 90-50, y: 150, width: 100, height: 100)
+        context!.addEllipse(in: circle3) // 원 그리기
+        context!.strokePath()
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.blue.cgColor)    // 색상
+        let circle4 = CGRect(x: 90, y: 150+50, width: 100, height: 100)
+        context!.addEllipse(in: circle4) // 원 그리기
+        context!.strokePath()
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.blue.cgColor)    // 색상
+        let circle5 = CGRect(x: 90, y: 150-50, width: 100, height: 100)
+        context!.addEllipse(in: circle5) // 원 그리기
+        context!.strokePath()
+        
+        context!.setLineWidth(1.0)                      // 굵기
+        context!.setStrokeColor(UIColor.green.cgColor)    // 색상
+        context!.setFillColor(UIColor.green.cgColor)      // 색 채우기
+        context!.move(to: CGPoint.init(x: 140, y: 200)) // 시작점
+        context!.addLine(to: CGPoint.init(x: 170, y: 450))  // 선긋기
+        context!.addLine(to: CGPoint.init(x: 110, y: 450))   // 선긋기
+        context!.addLine(to: CGPoint.init(x: 140, y: 200))  // 선긋기
+        context!.fillPath()
+        context!.strokePath()   // 그리기
+        
+        imgView.image = UIGraphicsGetImageFromCurrentImageContext() // 이미지뷰에 넣기
+        UIGraphicsEndImageContext() // 그림 그리기를 끝냄
+    }
+    
 }
 
