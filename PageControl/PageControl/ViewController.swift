@@ -33,6 +33,9 @@ class ViewController: UIViewController {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.respondToSwipeGesture(gesture:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(ViewController.doPinch(pinch:)))
+        self.view.addGestureRecognizer(pinch)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +74,14 @@ class ViewController: UIViewController {
             pageControl.currentPage = imgNum
         }
     }
+    
+    
+    func doPinch(pinch: UIPinchGestureRecognizer){
+
+        imgView.transform = imgView.transform.scaledBy(x: pinch.scale, y: pinch.scale)
+        pinch.scale = 1
+    }
+
 
 }
 
