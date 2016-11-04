@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SizeClass" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ETU-Nm-0q4">
+                                <rect key="frame" x="24" y="28" width="724" height="864"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-qs-NFA">
+                                <rect key="frame" x="361" y="921" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGP-PZ-ttt">
+                                <rect key="frame" x="24" y="921" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uk-Cy-5JY">
+                                <rect key="frame" x="702" y="921" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ETU-Nm-0q4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0HL-qH-80C"/>
+                            <constraint firstItem="4Uk-Cy-5JY" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="69O-8b-yeR"/>
+                            <constraint firstItem="4Uk-Cy-5JY" firstAttribute="top" secondItem="ETU-Nm-0q4" secondAttribute="bottom" constant="29" id="7D2-IB-Nah"/>
+                            <constraint firstItem="rZi-qs-NFA" firstAttribute="top" secondItem="ETU-Nm-0q4" secondAttribute="bottom" constant="29" id="9wf-jR-vkG"/>
+                            <constraint firstItem="ETU-Nm-0q4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="DmH-jS-hXr"/>
+                            <constraint firstItem="DGP-PZ-ttt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="FoY-pe-XZB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rZi-qs-NFA" secondAttribute="bottom" constant="73" id="MBU-qp-6SD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DGP-PZ-ttt" secondAttribute="bottom" constant="73" id="P6w-uj-iMW"/>
+                            <constraint firstItem="ETU-Nm-0q4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UYa-Mw-X6u"/>
+                            <constraint firstItem="DGP-PZ-ttt" firstAttribute="top" secondItem="ETU-Nm-0q4" secondAttribute="bottom" constant="29" id="V0J-co-7kD"/>
+                            <constraint firstItem="rZi-qs-NFA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZVy-tL-J0Y"/>
+                            <constraint firstItem="4Uk-Cy-5JY" firstAttribute="top" secondItem="ETU-Nm-0q4" secondAttribute="bottom" constant="29" id="bl3-hq-Wla"/>
+                            <constraint firstItem="ETU-Nm-0q4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lW9-mi-4vP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Uk-Cy-5JY" secondAttribute="bottom" constant="73" id="tXn-Uj-NLe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.25" y="122.53521126760563"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="01.png" width="1686" height="2448"/>
+    </resources>
+</document>

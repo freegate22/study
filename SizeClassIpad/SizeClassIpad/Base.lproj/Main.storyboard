@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SizeClassIpad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wq-er-WW6">
+                                <rect key="frame" x="64" y="191" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvX-ve-7Fc">
+                                <rect key="frame" x="64" y="399" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arV-0X-2rV">
+                                <rect key="frame" x="64" y="565" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="01.png" translatesAutoresizingMaskIntoConstraints="NO" id="KOa-qg-9gJ">
+                                <rect key="frame" x="133" y="28" width="615" height="976"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KOa-qg-9gJ" secondAttribute="bottom" constant="20" id="29q-9F-05j"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="leading" secondItem="arV-0X-2rV" secondAttribute="trailing" constant="60" id="EEB-Ig-3a5"/>
+                            <constraint firstItem="4Wq-er-WW6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="KUY-vK-BKA"/>
+                            <constraint firstItem="4Wq-er-WW6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="178" id="PqR-rH-58v"/>
+                            <constraint firstItem="bvX-ve-7Fc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RRt-df-aqt"/>
+                            <constraint firstItem="arV-0X-2rV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="SgH-VJ-NT2"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WUP-oY-g1f"/>
+                            <constraint firstItem="bvX-ve-7Fc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="37" id="Xwb-Jc-qBQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="arV-0X-2rV" secondAttribute="bottom" constant="181" id="ZT1-Hh-Pjv"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="cJu-zt-1W1"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="leading" secondItem="arV-0X-2rV" secondAttribute="trailing" constant="60" id="wAT-oo-s1Z"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="leading" secondItem="4Wq-er-WW6" secondAttribute="trailing" constant="60" id="z4w-iC-rId"/>
+                            <constraint firstItem="KOa-qg-9gJ" firstAttribute="leading" secondItem="bvX-ve-7Fc" secondAttribute="trailing" constant="60" id="zFo-5w-zXl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.96875" y="122.46093749999999"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="01.png" width="1686" height="2448"/>
+    </resources>
+</document>
