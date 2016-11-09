@@ -2,6 +2,8 @@
 <playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='UIKit Examples'/>
-        <page name='Untitled Page'/>
+        <page name='Class Examples'/>
+        <page name='Extend Class Examples'/>
+        <page name='Collection Examples'/>
     </pages>
 </playground>
