@@ -76,10 +76,10 @@ var bookDict2: [String: String] =
 // 갯수
 print(bookDict.count)
 // 접근 및 수정
-print(bookDict["100-432112"])
+print(bookDict["100-432112"]!)
 bookDict["100-432112"] = "Sense and Sensibility"
 
-print(bookDict["100-432112"])
+print(bookDict["100-432112"]!)
 bookDict.updateValue("The Ruins", forKey: "200-432112")
 
 // 추가
