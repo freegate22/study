@@ -13,6 +13,7 @@
 		0DA74B2A1DDD7D4E0027819D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA74B281DDD7D4E0027819D /* LaunchScreen.storyboard */; };
 		0DA74B341DDD7ED20027819D /* AttractionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74B331DDD7ED20027819D /* AttractionTableViewController.swift */; };
 		0DA74B361DDD7EF20027819D /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74B351DDD7EF20027819D /* AttractionTableViewCell.swift */; };
+		0DA74B381DE1FA620027819D /* AttractionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA74B371DE1FA620027819D /* AttractionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0DA74B2B1DDD7D4E0027819D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA74B331DDD7ED20027819D /* AttractionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttractionTableViewController.swift; path = ../AttractionTableViewController.swift; sourceTree = "<group>"; };
 		0DA74B351DDD7EF20027819D /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttractionTableViewCell.swift; path = ../AttractionTableViewCell.swift; sourceTree = "<group>"; };
+		0DA74B371DE1FA620027819D /* AttractionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				0DA74B1F1DDD7D4E0027819D /* AppDelegate.swift */,
 				0DA74B231DDD7D4E0027819D /* Main.storyboard */,
 				0DA74B261DDD7D4E0027819D /* Assets.xcassets */,
+				0DA74B371DE1FA620027819D /* AttractionDetailViewController.swift */,
 				0DA74B281DDD7D4E0027819D /* LaunchScreen.storyboard */,
 				0DA74B2B1DDD7D4E0027819D /* Info.plist */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				0DA74B341DDD7ED20027819D /* AttractionTableViewController.swift in Sources */,
 				0DA74B361DDD7EF20027819D /* AttractionTableViewCell.swift in Sources */,
+				0DA74B381DE1FA620027819D /* AttractionDetailViewController.swift in Sources */,
 				0DA74B201DDD7D4E0027819D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
