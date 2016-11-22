@@ -1,14 +1,18 @@
 //
-//  AttractionTableViewController.swift
-//  TableViewStory
+//  TableViewController.swift
+//  Favorites
 //
-//  Created by na on 2016. 11. 17..
+//  Created by na on 2016. 11. 21..
 //  Copyright © 2016년 HSJ. All rights reserved.
 //
 
 import UIKit
 
-class AttractionTableViewController: UITableViewController {
+var items = ["책 구매","철수와 약속","스터디 준비하기"]
+
+class TableViewController: UITableViewController {
+
+    @IBOutlet var folderListView: UITableView!
     
     var attractionImages = [String]()
     var attractionNames = [String]()
@@ -16,33 +20,21 @@ class AttractionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        attractionNames = ["네이버",
-                           "The Eiffel Tower",
-                           "The Grand Canyon",
-                           "Windsor Castle",
-                           "Empire State Building"]
+        
+        attractionNames = ["구글",
+                           "네이버",
+                           "다음",
+                           "페이스북",
+                           "유튜브"]
         
         webAddresses = ["https://www.google.com",
-                        "https://en.wikipedia.org/wiki/Eiffel_Tower",
-                        "https://en.wikipedia.org/wiki/Grand_Canyon",
-                        "https://en.wikipedia.org/wiki/Windsor_Castle",
-                        "https://en.wikipedia.org/wiki/Empire_State_Building"]
-        
-        attractionImages = ["buckingham_palace.jpg",
-                            "eiffel_tower.jpg",
-                            "grand_canyon.jpg",
-                            "windsor_castle.jpg",
-                            "empire_state_building.jpg"]
-        
-        tableView.estimatedRowHeight = 50
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+                        "http://www.naver.com",
+                        "http://www.daum.net",
+                        "http://www.facebook.com",
+                        "http://www.youtube.com"]
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,30 +44,27 @@ class AttractionTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        // 테이블의 섹션 갯수
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        // 테이블에 뵤시될 행의 개수
         return attractionNames.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "AttractionTableCell", for: indexPath) as! AttractionTableViewCell
-
-        let row = indexPath.row
-        cell.attractionLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        cell.attractionLabel.text = attractionNames[row]
-        cell.attractionImage.image = UIImage(named: attractionImages[row])
         
-        // Configure the cell...
-
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! TableViewCell
+ 
+        cell.lblTitle.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        cell.lblTitle.text = attractionNames[indexPath.row]
+        
+        cell.lblUrl.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        cell.lblUrl.text = webAddresses[indexPath.row]
         return cell
     }
-    
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -112,22 +101,22 @@ class AttractionTableViewController: UITableViewController {
     }
     */
 
-
     
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     // 스토리보드간 데이터 전달하기
-    // segue가 실행되기 전에 호출된다. 
-    // 즉 AttractionDetailViewController - 다음 segue - 가 호출되기 직전에 호출된다.
+    // segue가 실행되기 전에 호출된다.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "ShowAttractionDetails" {
-            let detailViewController = segue.destination as! AttractionDetailViewController
+        if segue.identifier == "ShowWebView" {
+            let webViewController = segue.destination as! WebViewController
             let myIndexPath = self.tableView.indexPathForSelectedRow!
             let row = myIndexPath.row
-            detailViewController.webSite = webAddresses[row]
+            webViewController.webSite = webAddresses[row]
         }
     }
+ 
 
 }
