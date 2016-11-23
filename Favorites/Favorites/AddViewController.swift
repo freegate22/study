@@ -30,7 +30,14 @@ class AddViewController: UIViewController {
         webAddresses.append(lblAddress.text!)
         lblName.text = ""
         lblAddress.text = ""
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        //self.performSegue(withIdentifier: "SegueToTable", sender: self)
+        
+//        let preView = self.presentingViewController as? TableViewController
+//        preView?.returned()
+        
+        //self.presentingViewController?.dismiss(animated: true, completion: nil)
+        //self.navigationController?.popToRootViewController(animated: true)
     }
     /*
 

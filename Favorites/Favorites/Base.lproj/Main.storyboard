@@ -57,7 +57,7 @@
                     <navigationItem key="navigationItem" title="즐겨찾기" id="e2M-u0-WuZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gzi-Bk-ebU">
                             <connections>
-                                <segue destination="pS5-h0-jf7" kind="show" id="OnP-uw-Iao"/>
+                                <segue destination="pS5-h0-jf7" kind="show" identifier="SegueToTable" id="OnP-uw-Iao"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -113,6 +113,7 @@
                                 <state key="normal" title="추가"/>
                                 <connections>
                                     <action selector="btnAdd:" destination="pS5-h0-jf7" eventType="touchUpInside" id="BoN-Rg-ZMG"/>
+                                    <segue destination="575-co-ut8" kind="unwind" unwindAction="returnedWithSegue:" id="fwk-Xi-TXA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,6 +142,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukm-Yl-lWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="575-co-ut8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1936.875" y="-577.81690140845069"/>
         </scene>
