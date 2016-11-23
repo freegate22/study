@@ -26,18 +26,16 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func btnAdd(_ sender: UIButton) {
+        var address = lblAddress.text!
+        if !address.hasPrefix("http://") && !address.hasPrefix("https://")
+        {
+            address = "http://" + address
+        }
+        
         attractionNames.append(lblName.text!)
-        webAddresses.append(lblAddress.text!)
+        webAddresses.append(address)
         lblName.text = ""
         lblAddress.text = ""
-        
-        //self.performSegue(withIdentifier: "SegueToTable", sender: self)
-        
-//        let preView = self.presentingViewController as? TableViewController
-//        preView?.returned()
-        
-        //self.presentingViewController?.dismiss(animated: true, completion: nil)
-        //self.navigationController?.popToRootViewController(animated: true)
     }
     /*
 
