@@ -14,6 +14,7 @@
 		0D13B5261DE339C80077EFBC /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B5251DE339C80077EFBC /* TableViewController.swift */; };
 		0D13B5281DE402B50077EFBC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B5271DE402B50077EFBC /* TableViewCell.swift */; };
 		0D13B52A1DE410490077EFBC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B5291DE410490077EFBC /* WebViewController.swift */; };
+		0D13B52C1DE5590A0077EFBC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B52B1DE5590A0077EFBC /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0D13B5251DE339C80077EFBC /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0D13B5271DE402B50077EFBC /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0D13B5291DE410490077EFBC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0D13B52B1DE5590A0077EFBC /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				0D13B5131DE338980077EFBC /* AppDelegate.swift */,
 				0D13B5171DE338980077EFBC /* Main.storyboard */,
+				0D13B52B1DE5590A0077EFBC /* AddViewController.swift */,
 				0D13B5291DE410490077EFBC /* WebViewController.swift */,
 				0D13B51A1DE338980077EFBC /* Assets.xcassets */,
 				0D13B51C1DE338980077EFBC /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D13B52C1DE5590A0077EFBC /* AddViewController.swift in Sources */,
 				0D13B5281DE402B50077EFBC /* TableViewCell.swift in Sources */,
 				0D13B5141DE338980077EFBC /* AppDelegate.swift in Sources */,
 				0D13B5261DE339C80077EFBC /* TableViewController.swift in Sources */,

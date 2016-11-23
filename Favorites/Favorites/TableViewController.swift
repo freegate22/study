@@ -8,31 +8,26 @@
 
 import UIKit
 
-var items = ["책 구매","철수와 약속","스터디 준비하기"]
+var attractionNames: [String] = ["구글","네이버","다음","페이스북","유튜브"]
+var shoppingList: [String] = ["Eggs", "Milk"]
+
+var webAddresses: [String] = ["https://www.google.com","http://www.naver.com", "http://www.daum.net", "http://www.facebook.com", "http://www.youtube.com"]
 
 class TableViewController: UITableViewController {
 
     @IBOutlet var folderListView: UITableView!
     
     var attractionImages = [String]()
-    var attractionNames = [String]()
-    var webAddresses = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        attractionNames = ["구글",
-                           "네이버",
-                           "다음",
-                           "페이스북",
-                           "유튜브"]
-        
-        webAddresses = ["https://www.google.com",
-                        "http://www.naver.com",
-                        "http://www.daum.net",
-                        "http://www.facebook.com",
-                        "http://www.youtube.com"]
 
+    }
+    
+    // 추가한 목록 불러오기
+    override func viewWillAppear(_ animated: Bool) {
+        folderListView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
