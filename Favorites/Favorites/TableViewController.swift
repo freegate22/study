@@ -23,6 +23,27 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.isEditing = true
+        
+        filestudy()
+    }
+    
+    func filestudy(){
+//        let filemgr = FileManager.default
+        
+//        // 파일 오프셋 이동, 바이트단위로 읽기
+        let filepath1 = "/Users/na/c.txt"
+        let file: FileHandle? = FileHandle(forUpdatingAtPath: filepath1)
+        
+        if file == nil {
+            print("file open failed")
+        } else {
+            
+            let data = ("black dog" as
+                NSString).data(using: String.Encoding.utf8.rawValue)
+            file?.seek(toFileOffset: 10)
+            file?.write(data!)
+            file?.closeFile()
+        }
     }
     
     // 추가한 목록 불러오기
