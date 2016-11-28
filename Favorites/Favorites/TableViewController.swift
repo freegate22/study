@@ -30,18 +30,14 @@ class TableViewController: UITableViewController {
     func filestudy(){
 //        let filemgr = FileManager.default
         
-//        // 파일 오프셋 이동, 바이트단위로 읽기
+//        // 파일 자르기
         let filepath1 = "/Users/na/c.txt"
         let file: FileHandle? = FileHandle(forUpdatingAtPath: filepath1)
         
         if file == nil {
             print("file open failed")
         } else {
-            
-            let data = ("black dog" as
-                NSString).data(using: String.Encoding.utf8.rawValue)
-            file?.seek(toFileOffset: 10)
-            file?.write(data!)
+            file?.truncateFile(atOffset: 0)
             file?.closeFile()
         }
     }
