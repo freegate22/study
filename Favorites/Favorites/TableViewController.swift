@@ -28,18 +28,15 @@ class TableViewController: UITableViewController {
     }
     
     func filestudy(){
-//        let filemgr = FileManager.default
-        
-//        // 파일 자르기
-        let filepath1 = "/Users/na/c.txt"
-        let file: FileHandle? = FileHandle(forUpdatingAtPath: filepath1)
-        
-        if file == nil {
-            print("file open failed")
-        } else {
-            file?.truncateFile(atOffset: 0)
-            file?.closeFile()
-        }
+//        let myDatabase = FMDatabase(path: favorites.db)
+//        
+//        if myDatabase == nil {
+//            
+//        } else {
+//            if myDatabase.open() {
+//                
+//            }
+//        }
     }
     
     // 추가한 목록 불러오기

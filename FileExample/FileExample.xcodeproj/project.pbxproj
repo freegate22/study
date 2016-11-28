@@ -22,6 +22,7 @@
 		0D87E74B1DEB14FA006A23A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D87E74E1DEB14FA006A23A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D87E7501DEB14FA006A23A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D87E7561DEBEDE4006A23A4 /* FileExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileExample.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 		0D87E7431DEB14FA006A23A4 /* FileExample */ = {
 			isa = PBXGroup;
 			children = (
+				0D87E7561DEBEDE4006A23A4 /* FileExample.entitlements */,
 				0D87E7441DEB14FA006A23A4 /* AppDelegate.swift */,
 				0D87E7461DEB14FA006A23A4 /* ViewController.swift */,
 				0D87E7481DEB14FA006A23A4 /* Main.storyboard */,
@@ -98,6 +100,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = N3DN6Z8UZ5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

@@ -15,6 +15,7 @@
 		0D13B5281DE402B50077EFBC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B5271DE402B50077EFBC /* TableViewCell.swift */; };
 		0D13B52A1DE410490077EFBC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B5291DE410490077EFBC /* WebViewController.swift */; };
 		0D13B52C1DE5590A0077EFBC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13B52B1DE5590A0077EFBC /* AddViewController.swift */; };
+		0D87E7591DEBF64C006A23A4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D87E7581DEBF64C006A23A4 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0D13B5271DE402B50077EFBC /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		0D13B5291DE410490077EFBC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0D13B52B1DE5590A0077EFBC /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		0D87E7581DEBF64C006A23A4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D87E7591DEBF64C006A23A4 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 			children = (
 				0D13B5121DE338980077EFBC /* Favorites */,
 				0D13B5111DE338980077EFBC /* Products */,
+				0D87E7571DEBF64C006A23A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +75,14 @@
 				0D13B5271DE402B50077EFBC /* TableViewCell.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		0D87E7571DEBF64C006A23A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D87E7581DEBF64C006A23A4 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +326,7 @@
 				0D13B5241DE338980077EFBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
