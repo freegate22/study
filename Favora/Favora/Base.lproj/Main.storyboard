@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fTH-Wb-UJB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--폴더-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Favora" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-tI-aQQ">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="1Fa-rJ-c54"/>
+                                    <tabBarItem systemItem="search" id="bpz-3w-FYO"/>
+                                    <tabBarItem systemItem="more" id="obM-YD-1ZK"/>
+                                </items>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-WH-vnF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderTableViewCell" id="3yE-ND-rQJ" customClass="FolderTableViewCell" customModule="Favora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3yE-ND-rQJ" id="jlS-D3-TPO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpP-Kr-Tsx">
+                                                    <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VpP-Kr-Tsx" firstAttribute="leading" secondItem="jlS-D3-TPO" secondAttribute="leadingMargin" id="2GC-pl-2fe"/>
+                                                <constraint firstItem="VpP-Kr-Tsx" firstAttribute="centerY" secondItem="jlS-D3-TPO" secondAttribute="centerY" id="UQX-zS-JK2"/>
+                                                <constraint firstItem="VpP-Kr-Tsx" firstAttribute="trailing" secondItem="jlS-D3-TPO" secondAttribute="trailingMargin" id="g0Y-et-OD0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblFolderName" destination="VpP-Kr-Tsx" id="vlx-sh-DjY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="qMb-0I-KuX"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i3P-UR-xZy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bHG-WH-vnF" firstAttribute="leading" secondItem="eYc-tI-aQQ" secondAttribute="leading" id="3SM-gq-JCY"/>
+                            <constraint firstItem="bHG-WH-vnF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BEx-FS-xqL"/>
+                            <constraint firstItem="bHG-WH-vnF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Cnl-iC-WhX"/>
+                            <constraint firstAttribute="trailing" secondItem="bHG-WH-vnF" secondAttribute="trailing" id="Dh4-Sd-O4G"/>
+                            <constraint firstItem="eYc-tI-aQQ" firstAttribute="top" secondItem="bHG-WH-vnF" secondAttribute="bottom" id="Pan-4p-XkO"/>
+                            <constraint firstItem="eYc-tI-aQQ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ZbL-6H-nEh"/>
+                            <constraint firstItem="bHG-WH-vnF" firstAttribute="trailing" secondItem="eYc-tI-aQQ" secondAttribute="trailing" id="rR7-EQ-5pB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="폴더" id="Xt1-Ic-7r2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="L7v-a6-5M1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Og-Qn-2Tr"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="folderTableView" destination="bHG-WH-vnF" id="vI4-GK-qk6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BWD-Tr-2Y1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fTH-Wb-UJB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xl4-fW-iyo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Myt-lh-VBt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npl-zb-tiI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+</document>
