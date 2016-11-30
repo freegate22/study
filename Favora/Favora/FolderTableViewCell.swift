@@ -11,6 +11,7 @@ import UIKit
 class FolderTableViewCell: UITableViewCell {
 
     @IBOutlet var lblFolderName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
