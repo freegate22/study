@@ -54,24 +54,53 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEG-cX-32j">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27"/>
+                                                    <rect key="frame" x="20" y="8" width="335" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WEG-cX-32j" firstAttribute="leading" secondItem="qXK-Sk-wvU" secondAttribute="leadingMargin" id="FT1-BI-qxf"/>
-                                                <constraint firstItem="WEG-cX-32j" firstAttribute="trailing" secondItem="qXK-Sk-wvU" secondAttribute="trailingMargin" id="N7O-f7-b4l"/>
-                                                <constraint firstItem="WEG-cX-32j" firstAttribute="top" secondItem="qXK-Sk-wvU" secondAttribute="topMargin" id="OfQ-x5-WfI"/>
-                                                <constraint firstItem="WEG-cX-32j" firstAttribute="bottom" secondItem="qXK-Sk-wvU" secondAttribute="bottomMargin" id="T4o-EH-Yyr"/>
+                                                <constraint firstItem="WEG-cX-32j" firstAttribute="top" secondItem="qXK-Sk-wvU" secondAttribute="topMargin" id="2km-ES-SwH"/>
+                                                <constraint firstItem="WEG-cX-32j" firstAttribute="centerX" secondItem="qXK-Sk-wvU" secondAttribute="centerX" id="80r-XM-TmB"/>
+                                                <constraint firstItem="WEG-cX-32j" firstAttribute="bottom" secondItem="qXK-Sk-wvU" secondAttribute="bottomMargin" id="sEu-Ns-srw"/>
+                                                <constraint firstItem="WEG-cX-32j" firstAttribute="leading" secondItem="qXK-Sk-wvU" secondAttribute="leadingMargin" constant="12" id="yKD-fw-QAR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblFolderName" destination="WEG-cX-32j" id="qSx-Yn-del"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SiteTableViewCell" rowHeight="59" id="U6l-i2-4y9" userLabel="SiteTableViewCell" customClass="SiteTableViewCell" customModule="Favora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U6l-i2-4y9" id="MU6-e9-pzW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udH-AF-sfX">
+                                                    <rect key="frame" x="21" y="8" width="333" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNY-6z-qaI">
+                                                    <rect key="frame" x="21" y="29" width="333" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblName" destination="udH-AF-sfX" id="5hr-aZ-hWj"/>
+                                            <outlet property="lblUrl" destination="WNY-6z-qaI" id="zlX-BS-FLo"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Zrj-a6-6hi"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="eWa-Kz-y2A"/>
@@ -89,8 +118,8 @@
                             <constraint firstItem="nrR-9F-V49" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="y1b-SE-8L1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="폴더" id="Xt1-Ic-7r2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Bxw-4q-uxn">
+                    <navigationItem key="navigationItem" title="브랜드명" id="Xt1-Ic-7r2">
+                        <barButtonItem key="leftBarButtonItem" title="수정" id="Bxw-4q-uxn">
                             <connections>
                                 <action selector="doEdit:" destination="BYZ-38-t0r" id="WSr-KO-jrY"/>
                             </connections>

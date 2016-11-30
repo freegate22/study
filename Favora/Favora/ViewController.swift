@@ -9,6 +9,8 @@
 import UIKit
 
 var folderNames: [String] = ["포털","블로그","카페","쇼핑몰","기타"]
+var siteNames = ["Yahoo","Google","Apple","Bing","nate"]
+var siteAddresses = ["https://www.yahoo.com","https://www.google.com","https://www.apple.com","https://www.bing.com","https://www.nate.com"]
 
 class ViewController: UIViewController {
 
@@ -17,10 +19,10 @@ class ViewController: UIViewController {
     
     @IBAction func doEdit(_ sender: UIBarButtonItem) {
         if (tbvFolder.isEditing) {
-            edit.title = "Edit"
+            edit.title = "수정"
             tbvFolder.setEditing(false, animated: true)
         } else {
-            edit.title = "Done"
+            edit.title = "확인"
             tbvFolder.setEditing(true, animated: true)
         }
     }
@@ -43,27 +45,43 @@ class ViewController: UIViewController {
 // tableview의 datasource와 delegate 등록
 extension ViewController: UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return folderNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FolderTableViewCell", for: indexPath) as! FolderTableViewCell
+            
+            let row = indexPath.row
+            cell.lblFolderName.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+            cell.lblFolderName.text = folderNames[row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SiteTableViewCell", for: indexPath) as! SiteTableViewCell
+            
+            let siteRow = indexPath.row
+            cell.lblName.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+            cell.lblName.text = siteNames[siteRow]
+            cell.lblUrl.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+            cell.lblUrl.text = siteAddresses[siteRow]
+            return cell
+        }
+
+
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FolderTableViewCell", for: indexPath) as! FolderTableViewCell
-        
-        let row = indexPath.row
-        cell.lblFolderName.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        cell.lblFolderName.text = folderNames[row]
-        
-        // Configure the cell...
-        
-        return cell
+        // Configure the cell.        
+ 
     }
     
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        print("this")
         if editingStyle == .delete {
             // Delete the row from the data source
             folderNames.remove(at: indexPath.row)
@@ -93,10 +111,16 @@ extension ViewController: UITableViewDataSource{
         tbvFolder.setEditing(editing, animated: animated)
         if (editing) {
             // you might disable other widgets here... (optional)
-            print("editing2")
         } else {
             // re-enable disabled widgets (optional)
-            print("not editing")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "폴더"
+        } else {
+            return "site"
         }
     }
 }
