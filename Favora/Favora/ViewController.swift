@@ -9,8 +9,8 @@
 import UIKit
 
 var folderNames: [String] = ["포털","블로그","카페","쇼핑몰","기타"]
-var siteNames = ["Yahoo","Google","Apple","Bing","nate"]
-var siteAddresses = ["https://www.yahoo.com","https://www.google.com","https://www.apple.com","https://www.bing.com","https://www.nate.com"]
+var siteNames = ["Yahoo","Google","Apple","Bing","nate","Yahoo","Google","Apple","Bing","nate","Yahoo","Google","Apple","Bing","nate"]
+var siteAddresses = ["https://www.yahoo.com","https://www.google.com","https://www.apple.com","https://www.bing.com","https://www.nate.com","https://www.yahoo.com","https://www.google.com","https://www.apple.com","https://www.bing.com","https://www.nate.com","https://www.yahoo.com","https://www.google.com","https://www.apple.com","https://www.bing.com","https://www.nate.com"]
 
 class ViewController: UIViewController {
 
@@ -50,8 +50,13 @@ extension ViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return folderNames.count
+
+        if section == 0 {
+            return folderNames.count
+        } else {
+            return siteNames.count
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,23 +65,20 @@ extension ViewController: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FolderTableViewCell", for: indexPath) as! FolderTableViewCell
             
             let row = indexPath.row
-            cell.lblFolderName.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
             cell.lblFolderName.text = folderNames[row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SiteTableViewCell", for: indexPath) as! SiteTableViewCell
             
             let siteRow = indexPath.row
-            cell.lblName.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
             cell.lblName.text = siteNames[siteRow]
-            cell.lblUrl.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
             cell.lblUrl.text = siteAddresses[siteRow]
             return cell
         }
 
 
         
-        // Configure the cell.        
+        // Configure the cell.
  
     }
     
