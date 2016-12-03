@@ -28,6 +28,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUg-oY-LPN">
                                         <rect key="frame" x="296" y="10" width="69" height="30"/>
                                         <state key="normal" title="새로운 폴더"/>
+                                        <connections>
+                                            <action selector="btnNewFolder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qyu-P0-4u0"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10개의 즐겨찾기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu1-bt-Ox0">
                                         <rect key="frame" x="139" y="16" width="98" height="18"/>

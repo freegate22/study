@@ -38,6 +38,41 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func btnNewFolder(_ sender: UIButton) {
+
+        let alert = UIAlertController(title: "새로운 폴더", message: "이 폴더의 이름을 입력하십시오.", preferredStyle: .alert)
+        
+
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
+            if let textFields = alert.textFields {
+                let theTextFields = textFields
+                let enteredText = theTextFields[0].text
+                print("\n\(enteredText)")
+            }
+            
+            print("Ok Button was Pressed")
+        })
+        
+        alert.addTextField(){
+            (textField) in textField.placeholder = "폴더명"
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
+                print("\(textField.text)")
+                okAction.isEnabled = textField.text != ""
+            }
+            
+        }
+
+        okAction.isEnabled = false
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false, completion: nil)
+        
+    }
 
 }
 
