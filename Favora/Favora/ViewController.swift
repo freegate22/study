@@ -46,12 +46,16 @@ class ViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: { (action) -> Void in
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: {
+            (action) -> Void in
             if let textFields = alert.textFields {
                 let theTextFields = textFields
                 let enteredText = theTextFields[0].text
                 print("\n\(enteredText)")
+                folderNames.append(enteredText!)
+                self.tbvFolder.reloadData()
             }
+            
             
             print("Ok Button was Pressed")
         })
@@ -110,8 +114,6 @@ extension ViewController: UITableViewDataSource{
             cell.lblUrl.text = siteAddresses[siteRow]
             return cell
         }
-
-
         
         // Configure the cell.
  
@@ -119,6 +121,7 @@ extension ViewController: UITableViewDataSource{
     
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        print("edit")
         if editingStyle == .delete {
             // Delete the row from the data source
             folderNames.remove(at: indexPath.row)
@@ -126,6 +129,8 @@ extension ViewController: UITableViewDataSource{
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        } else {
+            print("else")
         }
     }
     
@@ -147,8 +152,10 @@ extension ViewController: UITableViewDataSource{
         super.setEditing(editing, animated: animated)
         tbvFolder.setEditing(editing, animated: animated)
         if (editing) {
+            print("1")
             // you might disable other widgets here... (optional)
         } else {
+            print("2")
             // re-enable disabled widgets (optional)
         }
     }
