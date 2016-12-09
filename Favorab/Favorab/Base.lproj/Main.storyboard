@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHF-44-gdh">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,48 +19,81 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRu-EZ-Ye8">
-                                <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="522" id="GiT-w9-xMj"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="riJ-Kb-k4u" customClass="FolderTableViewCell" customModule="Favorab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FolderTableViewCell" id="riJ-Kb-k4u" customClass="FolderTableViewCell" customModule="Favorab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="riJ-Kb-k4u" id="WMT-UG-B86">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FolderTableViewCell" id="ATL-K9-p9l" customClass="SiteTableViewCell" customModule="Favorab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="768" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SiteTableViewCell" id="ATL-K9-p9l" customClass="SiteTableViewCell" customModule="Favorab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATL-K9-p9l" id="NLk-C6-sci">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1G-T6-Hq8">
+                                <rect key="frame" x="0.0" y="522" width="320" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdl-8m-lpX">
+                                        <rect key="frame" x="234" y="8" width="78" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="p06-jS-6ta"/>
+                                        </constraints>
+                                        <state key="normal" title="새로운 폴더"/>
+                                        <connections>
+                                            <action selector="btnNewFolder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BCq-BP-f3v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rdl-8m-lpX" firstAttribute="trailing" secondItem="j1G-T6-Hq8" secondAttribute="trailingMargin" id="rIU-z8-Pwa"/>
+                                    <constraint firstItem="rdl-8m-lpX" firstAttribute="top" secondItem="j1G-T6-Hq8" secondAttribute="topMargin" id="ulM-Qm-iA4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6We-N6-xZ4"/>
-                            <constraint firstAttribute="trailing" secondItem="KRu-EZ-Ye8" secondAttribute="trailing" id="a8p-8D-Cfv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KRu-EZ-Ye8" secondAttribute="bottom" id="qTw-xE-VLt"/>
-                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qrA-0e-Yr6"/>
+                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="trailing" secondItem="j1G-T6-Hq8" secondAttribute="trailing" id="1sf-6L-Wcl"/>
+                            <constraint firstItem="j1G-T6-Hq8" firstAttribute="top" secondItem="KRu-EZ-Ye8" secondAttribute="bottom" id="9Ca-6B-olK"/>
+                            <constraint firstAttribute="trailing" secondItem="KRu-EZ-Ye8" secondAttribute="trailing" id="Fgg-Jd-b9b"/>
+                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UZ4-Dg-fVi"/>
+                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="leading" secondItem="j1G-T6-Hq8" secondAttribute="leading" id="Xnx-JP-pq6"/>
+                            <constraint firstItem="j1G-T6-Hq8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="e7v-UX-GhX"/>
+                            <constraint firstItem="KRu-EZ-Ye8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ov7-zX-hYh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qy7-o3-wFQ"/>
+                    <navigationItem key="navigationItem" id="qy7-o3-wFQ">
+                        <barButtonItem key="leftBarButtonItem" title="수정" id="bdV-mr-dg8">
+                            <connections>
+                                <action selector="doEdit:" destination="BYZ-38-t0r" id="iaJ-OL-bTG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="itemEdit" destination="bdV-mr-dg8" id="Z27-gt-vv8"/>
                         <outlet property="tableview" destination="KRu-EZ-Ye8" id="CmP-ch-YnU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.25" y="122.46093749999999"/>
+            <point key="canvasLocation" x="1055.625" y="121.47887323943662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PFp-Rl-CzK">
