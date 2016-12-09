@@ -11,6 +11,10 @@ import RealmSwift
 
 class Folder: Object {
     
+    dynamic var id = 0
     dynamic var Name : String = ""
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

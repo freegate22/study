@@ -17,20 +17,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var datasourceFolder : Results<Folder>!
     var datasourceSite : Results<Site>!
     
-    override func viewWillAppear(_ animated: Bool){
-        super.viewWillAppear(animated)
-        reloadTheTable()
-    }
+    var folderKVA = [Int: Int]()
+    
+//    override func viewWillAppear(_ animated: Bool){
+//        super.viewWillAppear(animated)
+//        reloadTheTable()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        migration()
         tableview.delegate = self
         tableview.dataSource = self
         reloadTheTable()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    func migration(){
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                migration.enumerateObjects(ofType: Folder.className()) { oldObject, newObject in }
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,6 +73,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             let currentFolder = datasourceFolder[indexPath.row]
             cell?.textLabel?.text = currentFolder.Name
+            folderKVA[indexPath.row] = currentFolder.id
+
+            print("id = \(folderKVA[indexPath.row] )")
             return cell!
             
         } else {
@@ -90,7 +103,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        print("edit")
         if editingStyle == .delete {
             // Delete the row from the data source
 //            removeFolder(name: )
@@ -100,7 +112,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         } else {
-            print("else")
+
         }
     }
     
@@ -146,10 +158,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     ///////////////////////////
     
     func saveFolder(name: String){
+        let realm = try! Realm()
+        
+        let maxValue =  realm.objects(Folder.self).max(ofProperty: "id") as Int?
+
         let folder = Folder()
         folder.Name = name
+        folder.id = maxValue! + 1
 
-        let realm = try! Realm()
         try! realm.write {
             realm.add(folder)
         }
@@ -163,6 +179,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let realm = try! Realm()
         try! realm.write {
             realm.delete(folder)
+        }
+        reloadTheTable()
+    }
+    
+    func removeAll(){
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
         }
         reloadTheTable()
     }
@@ -184,8 +208,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func btnNewFolder(_ sender: UIButton) {
         let alert = UIAlertController(title: "새로운 폴더", message: "이 폴더의 이름을 입력하십시오.", preferredStyle: .alert)
         
-        
-        
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         let okAction = UIAlertAction(title: "확인", style: .default, handler: {
@@ -193,18 +215,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let textFields = alert.textFields {
                 let theTextFields = textFields
                 let enteredText = theTextFields[0].text
-                print("\n\(enteredText)")
                 self.saveFolder(name: enteredText!)
             }
-            
-            
-            print("Ok Button was Pressed")
         })
         
         alert.addTextField(){
             (textField) in textField.placeholder = "폴더명"
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
-                print("\(textField.text)")
                 okAction.isEnabled = textField.text != ""
             }
             
