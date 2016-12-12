@@ -13,11 +13,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var itemEdit: UIBarButtonItem!
-    
+
     var datasourceFolder : Results<Folder>!
     var datasourceSite : Results<Site>!
-    
-    var folderKVA = [Int: Int]()
     
 //    override func viewWillAppear(_ animated: Bool){
 //        super.viewWillAppear(animated)
@@ -30,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.delegate = self
         tableview.dataSource = self
         reloadTheTable()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     func migration(){
@@ -55,6 +52,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         datasourceSite = realm.objects(Site.self)
         tableview?.reloadData()
         
+        print("Count - \(datasourceFolder.count)")
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,9 +72,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             let currentFolder = datasourceFolder[indexPath.row]
             cell?.textLabel?.text = currentFolder.Name
-            folderKVA[indexPath.row] = currentFolder.id
 
-            print("id = \(folderKVA[indexPath.row] )")
+            print("c=\(currentFolder.id) row=\(indexPath.row)")
             return cell!
             
         } else {
@@ -103,11 +101,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
         if editingStyle == .delete {
-            // Delete the row from the data source
-//            removeFolder(name: )
-//            folderNames.remove(at: indexPath.row)
+            let folder = datasourceFolder[indexPath.row]
             
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(folder)
+            }
             tableview.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -131,9 +132,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "폴더"
+            return "태그"
         } else {
-            return "site"
+            return "최근 방문한 사이트"
         }
     }
 //
@@ -160,8 +161,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func saveFolder(name: String){
         let realm = try! Realm()
         
-        let maxValue =  realm.objects(Folder.self).max(ofProperty: "id") as Int?
-
+        var maxValue =  realm.objects(Folder.self).max(ofProperty: "id") as Int?
+        if maxValue == nil {
+            maxValue = 0
+        }
+        
         let folder = Folder()
         folder.Name = name
         folder.id = maxValue! + 1
@@ -169,18 +173,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         try! realm.write {
             realm.add(folder)
         }
-        reloadTheTable()
     }
     
-    func removeFolder(name: String){
-        let folder = Folder()
-        folder.Name = name
+    func removeFolder(id: Int){
+        let folder = datasourceFolder[id]
         
         let realm = try! Realm()
         try! realm.write {
             realm.delete(folder)
         }
-        reloadTheTable()
     }
     
     func removeAll(){
@@ -188,7 +189,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         try! realm.write {
             realm.deleteAll()
         }
-        reloadTheTable()
     }
     
     ///////////////////////////
@@ -206,6 +206,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func btnNewFolder(_ sender: UIButton) {
+
         let alert = UIAlertController(title: "새로운 폴더", message: "이 폴더의 이름을 입력하십시오.", preferredStyle: .alert)
         
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -216,6 +217,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let theTextFields = textFields
                 let enteredText = theTextFields[0].text
                 self.saveFolder(name: enteredText!)
+                self.tableview.insertRows(at: [IndexPath.init(row: self.datasourceFolder.count-1, section: 0)], with: .automatic)
             }
         })
         
