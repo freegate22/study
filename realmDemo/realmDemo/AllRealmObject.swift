@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 class Human : Object {
-    
     dynamic var name = ""
     dynamic var age = 0
     dynamic var race = ""

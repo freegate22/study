@@ -12,6 +12,9 @@
 		0D3BB7EB1DF80C6600EC8FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3BB7E91DF80C6600EC8FFE /* Main.storyboard */; };
 		0D3BB7ED1DF80C6600EC8FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D3BB7EC1DF80C6600EC8FFE /* Assets.xcassets */; };
 		0D3BB7F01DF80C6600EC8FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3BB7EE1DF80C6600EC8FFE /* LaunchScreen.storyboard */; };
+		0D3BB7F81DF8E45000EC8FFE /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3BB7F71DF8E45000EC8FFE /* EntryViewController.swift */; };
+		0D3BB7FB1DF8F46100EC8FFE /* ContactItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3BB7FA1DF8F46100EC8FFE /* ContactItem.swift */; };
+		AC0432434780D262A02BB435 /* Pods_PhoneBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0895138A271E831B8E01470 /* Pods_PhoneBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		0D3BB7EC1DF80C6600EC8FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D3BB7EF1DF80C6600EC8FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D3BB7F11DF80C6600EC8FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3BB7F71DF8E45000EC8FFE /* EntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		0D3BB7FA1DF8F46100EC8FFE /* ContactItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactItem.swift; sourceTree = "<group>"; };
+		501FEC51391773BCA9EFA335 /* Pods-PhoneBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhoneBook/Pods-PhoneBook.debug.xcconfig"; sourceTree = "<group>"; };
+		B0895138A271E831B8E01470 /* Pods_PhoneBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhoneBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF19C74ED19AFDC51BE40564 /* Pods-PhoneBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhoneBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhoneBook/Pods-PhoneBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0432434780D262A02BB435 /* Pods_PhoneBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				0D3BB7E41DF80C6600EC8FFE /* PhoneBook */,
 				0D3BB7E31DF80C6600EC8FFE /* Products */,
+				90125631627B9031C160324D /* Pods */,
+				641E22417BE815CA3FDDA777 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,41 @@
 		0D3BB7E41DF80C6600EC8FFE /* PhoneBook */ = {
 			isa = PBXGroup;
 			children = (
+				0D3BB7F91DF8F41D00EC8FFE /* RealmModel */,
 				0D3BB7E51DF80C6600EC8FFE /* AppDelegate.swift */,
 				0D3BB7E71DF80C6600EC8FFE /* ViewController.swift */,
+				0D3BB7F71DF8E45000EC8FFE /* EntryViewController.swift */,
 				0D3BB7E91DF80C6600EC8FFE /* Main.storyboard */,
 				0D3BB7EC1DF80C6600EC8FFE /* Assets.xcassets */,
 				0D3BB7EE1DF80C6600EC8FFE /* LaunchScreen.storyboard */,
 				0D3BB7F11DF80C6600EC8FFE /* Info.plist */,
 			);
 			path = PhoneBook;
+			sourceTree = "<group>";
+		};
+		0D3BB7F91DF8F41D00EC8FFE /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				0D3BB7FA1DF8F46100EC8FFE /* ContactItem.swift */,
+			);
+			name = RealmModel;
+			sourceTree = "<group>";
+		};
+		641E22417BE815CA3FDDA777 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0895138A271E831B8E01470 /* Pods_PhoneBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90125631627B9031C160324D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				501FEC51391773BCA9EFA335 /* Pods-PhoneBook.debug.xcconfig */,
+				FF19C74ED19AFDC51BE40564 /* Pods-PhoneBook.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D3BB7F41DF80C6600EC8FFE /* Build configuration list for PBXNativeTarget "PhoneBook" */;
 			buildPhases = (
+				380ED2C52D05731861BC4C13 /* [CP] Check Pods Manifest.lock */,
 				0D3BB7DE1DF80C6600EC8FFE /* Sources */,
 				0D3BB7DF1DF80C6600EC8FFE /* Frameworks */,
 				0D3BB7E01DF80C6600EC8FFE /* Resources */,
+				EBB9D6AA456EE7B8AC82CDDF /* [CP] Embed Pods Frameworks */,
+				CEB265C9EBACAB7E322B494B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +173,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		380ED2C52D05731861BC4C13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CEB265C9EBACAB7E322B494B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhoneBook/Pods-PhoneBook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBB9D6AA456EE7B8AC82CDDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhoneBook/Pods-PhoneBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D3BB7DE1DF80C6600EC8FFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +228,8 @@
 			files = (
 				0D3BB7E81DF80C6600EC8FFE /* ViewController.swift in Sources */,
 				0D3BB7E61DF80C6600EC8FFE /* AppDelegate.swift in Sources */,
+				0D3BB7F81DF8E45000EC8FFE /* EntryViewController.swift in Sources */,
+				0D3BB7FB1DF8F46100EC8FFE /* ContactItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +350,7 @@
 		};
 		0D3BB7F51DF80C6600EC8FFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 501FEC51391773BCA9EFA335 /* Pods-PhoneBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8NR723B3NZ;
@@ -272,6 +364,7 @@
 		};
 		0D3BB7F61DF80C6600EC8FFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF19C74ED19AFDC51BE40564 /* Pods-PhoneBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8NR723B3NZ;
@@ -302,6 +395,7 @@
 				0D3BB7F61DF80C6600EC8FFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

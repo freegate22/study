@@ -7,18 +7,55 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    var datasource : Results<ContactItem>!
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        reloadTheTable()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        addSample()
         self.setupUI()
+        reloadTheTable()
     }
+    
+    func addSample(){
+        let folder = ContactItem()
+        folder.Name = "정치"
+        folder.PhoneNumber = "111-222"
 
-   
+        do {
+            let realm = try Realm()
+            try! realm.write {
+                realm.add(folder)
+            }
+        } catch {
+            print("error")
+        }
+        
+    }
+    
+    func reloadTheTable(){
+        do {
+            let realm = try Realm()
+            datasource = realm.objects(ContactItem.self)
+            tableView?.reloadData()
+            print(datasource.count)
+        } catch {
+            
+        }
+        
+    }
+    
     func setupUI(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -26,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // DataSOurce delegation
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return  5
+        return datasource.count
     }
     
     
@@ -42,11 +79,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
         }
         
-        cell?.textLabel?.text = "Row \(indexPath.row)"
-        cell?.detailTextLabel?.text = "\(Date())"
+        let currentContactInfo = datasource[indexPath.row]
+        cell?.textLabel?.text = currentContactInfo.Name
+        cell?.detailTextLabel?.text = currentContactInfo.PhoneNumber
+        //        cell?.textLabel?.text = "Row \(indexPath.row)"
+        //        cell?.detailTextLabel?.text = "\(Date())"
         return cell!
     }
-
+    
     // 셀 높이 조절
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return 100
@@ -75,6 +115,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("Selected row at \(indexPath.row)")
     }
+    
+    
+    @IBAction func gotoEntryVC(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "goToEntryVC", sender: nil)
+    }
+    
+    
+    
+    
 }
 
- 
+
