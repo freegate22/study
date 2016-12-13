@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     var datasourceFolder : Results<Folder>!
     var datasourceSite : Results<Site>!
-    
+    var datasourceFavorite : Results<Favorite>!
 //    override func viewWillAppear(_ animated: Bool){
 //        super.viewWillAppear(animated)
 //        reloadTheTable()
@@ -28,6 +28,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.delegate = self
         tableview.dataSource = self
         reloadTheTable()
+        
+        printAllData()
     }
 
     func migration(){
@@ -36,6 +38,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             migrationBlock: { migration, oldSchemaVersion in
                 migration.enumerateObjects(ofType: Folder.className()) { oldObject, newObject in }
         })
+    }
+    
+    func printAllData(){
+        for folder in datasourceFolder {
+            print("\(folder.id)  \(folder.Name) ")
+        }
+        
+        for favorite in datasourceFavorite {
+            print("\(favorite.id)  \(favorite.Name)   \(favorite.Tag)  \(favorite.Url)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,6 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let realm = try! Realm()
         datasourceFolder = realm.objects(Folder.self)
         datasourceSite = realm.objects(Site.self)
+        datasourceFavorite = realm.objects(Favorite.self)
         tableview?.reloadData()
         
         print("Count - \(datasourceFolder.count)")
@@ -70,6 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
             }
+
             let currentFolder = datasourceFolder[indexPath.row]
             cell?.textLabel?.text = currentFolder.Name
 
@@ -151,6 +165,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
         print("Selected row at \(indexPath.row)")
     }
     
