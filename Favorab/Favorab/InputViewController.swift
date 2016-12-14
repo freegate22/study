@@ -32,13 +32,19 @@ class InputViewController: UIViewController {
     }
     
     func saveFavorite(){
+        
         let favorite = Favorite()
-        favorite.Name = textTag.text!
-        favorite.Tag = textName.text!
+        favorite.Tag = textTag.text!
+        favorite.Name = textName.text!
         favorite.Url = textURL.text!
 
         do {
             let realm = try Realm()
+            var maxValue =  realm.objects(Favorite.self).max(ofProperty: "id") as Int?
+            if maxValue == nil {
+                maxValue = 0
+            }
+            favorite.id = maxValue! + 1
             
             try realm.write( { () -> Void in
                 realm.add(favorite)
@@ -46,14 +52,33 @@ class InputViewController: UIViewController {
                 
             })
             
-            // 태그가 있는지 보고 없으면 추가
             
+            // 태그가 있는지 보고 없으면 추가
+            let folderObj = realm.objects(Folder.self)
+            let filteredFolder = folderObj.filter("Name == '\(favorite.Tag)'")
+            
+            if filteredFolder.count == 0 {
+                var maxValue =  folderObj.max(ofProperty: "id") as Int?
+                if maxValue == nil {
+                    maxValue = 0
+                }
+                let folder = Folder()
+                folder.id = maxValue! + 1
+                folder.Name = favorite.Tag
+                try realm.write( { () -> Void in
+                    realm.add(folder)
+                    print("Folder Saved \(folder.Name)")
+                    
+                })
+            }
         } catch {
             
         }
     }
     
-    
+    func addFolder(){
+        
+    }
 //    func saveFolder(name: String){
 //        let realm = try! Realm()
 //        

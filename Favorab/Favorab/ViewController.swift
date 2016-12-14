@@ -17,10 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var datasourceFolder : Results<Folder>!
     var datasourceSite : Results<Site>!
     var datasourceFavorite : Results<Favorite>!
-//    override func viewWillAppear(_ animated: Bool){
-//        super.viewWillAppear(animated)
-//        reloadTheTable()
-//    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        reloadTheTable()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let currentFolder = datasourceFolder[indexPath.row]
             cell?.textLabel?.text = currentFolder.Name
 
-            print("c=\(currentFolder.id) row=\(indexPath.row)")
             return cell!
             
         } else {
@@ -117,13 +117,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
-            let folder = datasourceFolder[indexPath.row]
-            
-            let realm = try! Realm()
-            try! realm.write {
-                realm.delete(folder)
-            }
-            tableview.deleteRows(at: [indexPath], with: .fade)
+            print("alert!!")
+            alertDelete(indexPath: indexPath)
+
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         } else {
@@ -131,6 +127,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    func alertDelete(indexPath: IndexPath){
+        let alert = UIAlertController(title: nil, message: "선택한 폴더를 삭제하시겠습니까?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        let okAction = UIAlertAction(title: "삭제", style: .default, handler: {
+            (action) -> Void in
+            
+            let folder = self.datasourceFolder[indexPath.row]
+            
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(folder)
+            }
+            self.tableview.deleteRows(at: [indexPath], with: .fade)
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false, completion: nil)
+    }
     // 셀 높이 조절
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
 //        return 50
@@ -146,7 +164,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "태그"
+            return "폴더"
         } else {
             return "최근 방문한 사이트"
         }
