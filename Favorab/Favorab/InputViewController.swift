@@ -28,7 +28,7 @@ class InputViewController: UIViewController {
     
     @IBAction func saveTag(_ sender: UIButton) {
         saveFavorite()
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func saveFavorite(){

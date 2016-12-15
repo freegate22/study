@@ -65,9 +65,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         datasourceSite = realm.objects(Site.self)
         datasourceFavorite = realm.objects(Favorite.self)
         tableview?.reloadData()
-        
-        print("Count - \(datasourceFolder.count)")
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,7 +114,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
-            print("alert!!")
             alertDelete(indexPath: indexPath)
 
         } else if editingStyle == .insert {
@@ -182,9 +178,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        return myHeader
 //    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
-        print("Selected row at \(indexPath.row)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "sgFavorite" {
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tableview.indexPath(for: cell)
+            let navigationController = segue.destination as! UINavigationController
+            let favoriteView = navigationController.topViewController as! FavoriteViewController
+            
+            do {
+                let realm = try Realm()
+                let favoriteObj = realm.objects(Favorite.self)
+                let selectedFolder = self.datasourceFolder[(indexPath?.row)!]
+                favoriteView.datasourceFavorite = favoriteObj.filter("Tag == '\(selectedFolder.Name)'")
+                //            favoriteView.receiveItem(selectedFolder: self.datasourceFolder[(indexPath?.row)!])
+            } catch {
+                
+            }
+
+        }
     }
     
     ///////////////////////////
