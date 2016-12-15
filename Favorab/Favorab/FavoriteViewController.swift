@@ -15,6 +15,10 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var datasourceFavorite : Results<Favorite>!
 
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        self.tableViewFavorite.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,15 +63,18 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         return datasourceFavorite.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        performSegue(withIdentifier: "sgWebView", sender: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("prep")
         if segue.identifier == "sgWebView" {
             let webViewController = segue.destination as! WebViewController
             let myIndexPath = self.tableViewFavorite.indexPathForSelectedRow!
             let row = myIndexPath.row
-            print("prepare \(datasourceFavorite[row].Url)")
             webViewController.webSite = datasourceFavorite[row].Url
         }
     }

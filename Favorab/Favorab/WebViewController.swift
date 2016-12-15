@@ -22,7 +22,12 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadWebPage(url: String){
-        let myUrl = URL(string: url)
+        let flag = url.hasPrefix("http://")
+        var strUrl = url
+        if !flag {
+            strUrl = "http://" + url
+        }
+        let myUrl = URL(string: strUrl)
         let myRequest = URLRequest(url: myUrl!)
         webView.loadRequest(myRequest)
     }
