@@ -8,20 +8,29 @@
 
 import UIKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, UIWebViewDelegate {
+
+    var webSite: String?
+    
+    @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        webView.delegate = self
+        loadWebPage(url: webSite!)
+    }
+    
+    func loadWebPage(url: String){
+        let myUrl = URL(string: url)
+        let myRequest = URLRequest(url: myUrl!)
+        webView.loadRequest(myRequest)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
 

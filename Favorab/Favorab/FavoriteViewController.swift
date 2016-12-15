@@ -21,6 +21,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         
         tableViewFavorite.delegate = self
         tableViewFavorite.dataSource = self
+        tableViewFavorite.register(FavoriteTableViewCell.self, forCellReuseIdentifier: "FavoriteCell")
         // Do any additional setup after loading the view.
     }
 
@@ -31,7 +32,6 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func receiveItem(selectedFolder: Folder){
         do {
-            print("받는곳 \(selectedFolder.Name)")
             let realm = try Realm()
             let favoriteObj = realm.objects(Favorite.self)
             datasourceFavorite = favoriteObj.filter("Name == '\(selectedFolder.Name)'")
@@ -46,25 +46,30 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        print("cellForRowAt \(datasourceFavorite[indexPath.row])")
-        let identifier: String = "myCell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        
-        if cell == nil {
-            // default, value1, value2, subtitle 의 템플릿이 있음
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
-        }
-        
+        let identifier: String = "FavoriteCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! FavoriteTableViewCell
         let currentFavorite = datasourceFavorite[indexPath.row]
-        cell?.textLabel?.text = currentFavorite.Name
-        cell?.detailTextLabel?.text = currentFavorite.Url
+        cell.textLabel?.text = currentFavorite.Name
+        cell.detailTextLabel?.text = currentFavorite.Url
 
-        return cell!
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection \(datasourceFavorite.count)")
         return datasourceFavorite.count
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        print("prep")
+        if segue.identifier == "sgWebView" {
+            let webViewController = segue.destination as! WebViewController
+            let myIndexPath = self.tableViewFavorite.indexPathForSelectedRow!
+            let row = myIndexPath.row
+            print("prepare \(datasourceFavorite[row].Url)")
+            webViewController.webSite = datasourceFavorite[row].Url
+        }
     }
     
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

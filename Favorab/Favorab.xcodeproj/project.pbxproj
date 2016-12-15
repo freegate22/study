@@ -13,6 +13,7 @@
 		0DB88C7E1DFED018004302D7 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB88C7D1DFED018004302D7 /* FavoriteViewController.swift */; };
 		0DB88C801DFED03F004302D7 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB88C7F1DFED03F004302D7 /* InputViewController.swift */; };
 		0DB88C821DFED04A004302D7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB88C811DFED04A004302D7 /* WebViewController.swift */; };
+		0DBCFAE21E02453300ED5537 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCFAE11E02453300ED5537 /* FavoriteTableViewCell.swift */; };
 		0DC4A9C51DF951C000C84DC1 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4A9C41DF951C000C84DC1 /* FolderTableViewCell.swift */; };
 		0DC4A9C71DF9521900C84DC1 /* SiteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4A9C61DF9521900C84DC1 /* SiteTableViewCell.swift */; };
 		0DDF69531DF91E5A0051C165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF69521DF91E5A0051C165 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		0DB88C7D1DFED018004302D7 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		0DB88C7F1DFED03F004302D7 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		0DB88C811DFED04A004302D7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		0DBCFAE11E02453300ED5537 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		0DC4A9C41DF951C000C84DC1 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		0DC4A9C61DF9521900C84DC1 /* SiteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiteTableViewCell.swift; sourceTree = "<group>"; };
 		0DDF694F1DF91E5A0051C165 /* Favorab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Favorab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				0DB88C7F1DFED03F004302D7 /* InputViewController.swift */,
 				0DB88C811DFED04A004302D7 /* WebViewController.swift */,
 				0DB88C7D1DFED018004302D7 /* FavoriteViewController.swift */,
+				0DBCFAE11E02453300ED5537 /* FavoriteTableViewCell.swift */,
 			);
 			path = Favorab;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				0D3044D61DF922CE00874720 /* Site.swift in Sources */,
 				0DB88C7E1DFED018004302D7 /* FavoriteViewController.swift in Sources */,
 				0D3044D31DF922AE00874720 /* Folder.swift in Sources */,
+				0DBCFAE21E02453300ED5537 /* FavoriteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,8 +13,7 @@
         <!--Web View Controller-->
         <scene sceneID="keV-L4-288">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ICO-N8-Do6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="MHc-r9-v8r" customClass="WebViewController" customModule="Favorab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main.Storageboard" id="MHc-r9-v8r" customClass="WebViewController" customModule="Favorab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kDk-Vv-ZxR"/>
                         <viewControllerLayoutGuide type="bottom" id="tOL-Un-zJU"/>
@@ -22,11 +21,22 @@
                     <view key="view" contentMode="scaleToFill" id="xTK-Fx-KJ0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-ub-mT0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="xSe-ub-mT0" id="J4s-jl-VUL"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ICO-N8-Do6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="814"/>
+            <point key="canvasLocation" x="3825" y="414.08450704225351"/>
         </scene>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
@@ -124,7 +134,6 @@
         <!--Favorite View Controller-->
         <scene sceneID="qFG-YU-LtW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fog-Am-L8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FavoriteVC" id="zNj-g5-BLB" customClass="FavoriteViewController" customModule="Favorab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jTf-Fs-UWb"/>
@@ -138,6 +147,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavoriteCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" id="XGz-aO-J6J" customClass="FavoriteTableViewCell" customModule="Favorab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGz-aO-J6J" id="9XY-Iv-771">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="MHc-r9-v8r" kind="show" identifier="sgWebView" id="b45-9d-kfW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,6 +171,7 @@
                         <outlet property="tableViewFavorite" destination="cbk-SK-67r" id="jVU-pl-mUO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fog-Am-L8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3030" y="415.14084507042253"/>
         </scene>
