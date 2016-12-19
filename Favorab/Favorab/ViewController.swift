@@ -151,9 +151,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    }
 //    
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
-//        return 30
+//        return 10
 //    }
-//    
+//
 //    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
 //        return 0
 //    }
@@ -165,12 +165,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return "최근 방문한 사이트"
         }
     }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
-//        myHeader.backgroundColor = UIColor.yellow
-//        return myHeader
-//    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
+        myHeader.backgroundColor = UIColor.yellow
+        myHeader.
+        return myHeader
+    }
 
 //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 //        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
@@ -184,8 +185,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "sgFavorite" {
             let cell = sender as! UITableViewCell
             let indexPath = self.tableview.indexPath(for: cell)
-            let navigationController = segue.destination as! UINavigationController
-            let favoriteView = navigationController.topViewController as! FavoriteViewController
+//            let navigationController = segue.destination as! UINavigationController
+//            let favoriteView = navigationController.topViewController as! FavoriteViewController
+            
+            let favoriteView = segue.destination as! FavoriteViewController
             
             do {
                 let realm = try Realm()

@@ -33,11 +33,32 @@ class InputViewController: UIViewController {
     
     func saveFavorite(){
         
+        let tmpUrl = textURL.text!
+
+        let flag = tmpUrl.hasPrefix("http://") || tmpUrl.hasPrefix("https://")
+        var strUrl = tmpUrl
+        if !flag {
+            strUrl = "http://" + tmpUrl
+        }
+        
         let favorite = Favorite()
         favorite.Tag = textTag.text!
         favorite.Name = textName.text!
-        favorite.Url = textURL.text!
-
+        favorite.Url = strUrl
+        
+        if !canOpenURL(string: strUrl) {
+            let alertView = UIAlertController(title: nil, message: "잘못된 URL입니다.", preferredStyle: UIAlertControllerStyle.alert)
+            alertView.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertView, animated: true, completion: nil)
+            
+//            let alert = UIAlertView()
+//            alert.message = "잘못된 URL입니다."
+//            alert.addButton(withTitle: "확인")
+//            alert.show()
+            return
+            // 내용 날리기
+        }
+        
         do {
             let realm = try Realm()
             var maxValue =  realm.objects(Favorite.self).max(ofProperty: "id") as Int?
@@ -72,8 +93,19 @@ class InputViewController: UIViewController {
                 })
             }
         } catch {
-            
+            // alert url 형식이 잘못되었습니다.
         }
+    }
+
+    func canOpenURL(string: String?) -> Bool {
+        guard let urlString = string else {return false}
+        guard let url = NSURL(string: urlString) else {return false}
+        if !UIApplication.shared.canOpenURL(url as URL) {return false}
+        
+        //
+        let regEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[regEx])
+        return predicate.evaluate(with: string)
     }
     
     func addFolder(){
