@@ -11,6 +11,8 @@ import RealmSwift
 
 class InputViewController: UIViewController {
 
+    var tag: String?
+    
     @IBOutlet weak var textTag: UITextField!
     @IBOutlet weak var textName: UITextField!
     @IBOutlet weak var textURL: UITextField!
@@ -42,7 +44,7 @@ class InputViewController: UIViewController {
         }
         
         let favorite = Favorite()
-        favorite.Tag = textTag.text!
+        favorite.Tag = tag!
         favorite.Name = textName.text!
         favorite.Url = strUrl
         

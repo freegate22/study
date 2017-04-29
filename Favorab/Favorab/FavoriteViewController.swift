@@ -14,6 +14,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableViewFavorite: UITableView!
     
     var datasourceFavorite : Results<Favorite>!
+    var tag: String?
 
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
@@ -76,6 +77,9 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
             let myIndexPath = self.tableViewFavorite.indexPathForSelectedRow!
             let row = myIndexPath.row
             webViewController.webSite = datasourceFavorite[row].Url
+        } else if segue.identifier == "sgInput" {
+            let inputViewController = segue.destination as! InputViewController
+            inputViewController.tag = tag
         }
     }
     

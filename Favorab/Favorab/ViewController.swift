@@ -169,7 +169,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
         myHeader.backgroundColor = UIColor.yellow
-        myHeader.
+
         return myHeader
     }
 
@@ -195,6 +195,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let favoriteObj = realm.objects(Favorite.self)
                 let selectedFolder = self.datasourceFolder[(indexPath?.row)!]
                 favoriteView.datasourceFavorite = favoriteObj.filter("Tag == '\(selectedFolder.Name)'")
+                favoriteView.tag = selectedFolder.Name
                 //            favoriteView.receiveItem(selectedFolder: self.datasourceFolder[(indexPath?.row)!])
             } catch {
                 
