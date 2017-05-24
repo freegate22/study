@@ -30,7 +30,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableview.dataSource = self
         reloadTheTable()
         
-        printAllData()
     }
 
     func migration(){
@@ -68,7 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -160,18 +159,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "폴더"
+            return "폴더 목록"
         } else {
             return "최근 방문한 사이트"
         }
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
-        myHeader.backgroundColor = UIColor.yellow
-
-        return myHeader
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 10))
+//        myHeader.backgroundColor = UIColor.yellow
+//
+//        return myHeader
+//    }
 
 //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 //        let myHeader = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 80))
